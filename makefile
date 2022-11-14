@@ -6,7 +6,7 @@
 #    By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 13:40:11 by selhilal          #+#    #+#              #
-#    Updated: 2022/11/13 17:58:28 by selhilal         ###   ########.fr        #
+#    Updated: 2022/11/13 20:43:20 by selhilal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,28 +16,22 @@ CC = cc
 
 FLAG = -Wall -Wextra -Werror
 
-
 ARC = ar rc
 
-SOURCE = ft_printf.c \
-		ft_puthex.c \
-		ft_putpercent.c \
-		ft_putuint.c \
-		ft_putstr.c\
-		ft_putchar.c\
-		ft_putint.c\
+SOURCE = ft_printf.c ft_puthex.c ft_putpercent.c ft_putuint.c ft_putstr.c ft_putchar.c ft_putint.c
 
-OBJECT = $(SOURCE %.c=%.o)
+OBJECT = $(SOURCE:.c=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJECT)
 	$(ARC) $(NAME) $(OBJECT)
+	
+%.o : %.c ft_printf.h
+	$(CC) $(CFLAGS) -o $@ -c $< 
 clean:
 	rm -f $(OBJECT)
 
-%.o : %.c ft_printf.h
-	$(CC) $(FLAG) -o $@ -c $< 
 fclean: clean
 	rm -f $(NAME)
 

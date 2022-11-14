@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:37:40 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/13 15:47:06 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:04:17 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putchar(char c, int count)
 {
-	count += write(1, &c, 1);
+	write(1, &c, 1);
+	count++;
 }

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:38:10 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/13 17:53:30 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:35:32 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_putstr(char *s, int count);
 void	ft_putnbr(int n, int count);
 void	ft_putchar(char c, int count);
 void	ft_putnbr_unsigned(unsigned int n, int count);
-void	nbrhexa(unsigned long long n, char var, int count);
-void	address(unsigned long long n, int count);
+void	nbrhexa(unsigned int n, char var, int count);
+void	address(unsigned long n, int count);
 
 #endif

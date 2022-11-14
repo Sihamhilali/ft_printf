@@ -6,13 +6,13 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:40:23 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/13 16:45:02 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 11:37:00 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-void	nbrhexa(unsigned long long n, char var, int count)
+void	nbrhexa(unsigned int n, char var, int count)
 {
 	char	*hex;
 

@@ -6,13 +6,13 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:40:33 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/13 17:51:07 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 12:26:48 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-void	_printf_f(const char *formt, va_list arg, int i, int rest)
+void	f_printf_f(const char *formt, va_list arg, int i, int rest)
 {
 	if (formt[i] == 'd' || formt[i] == 'i')
 		ft_putnbr(va_arg(arg, int), rest);
@@ -21,9 +21,9 @@ void	_printf_f(const char *formt, va_list arg, int i, int rest)
 	else if (formt[i] == 'x' || formt[i] == 'X')
 		nbrhexa(va_arg(arg, int), formt[i], rest);
 	else if (formt[i] == 'c')
-		ft_putchar(va_arg(arg, char), rest);
+		ft_putchar(va_arg(arg, int), rest);
 	else if (formt[i] == 'p')
-		address(va_arg(arg, unsigned long long *), rest);
+		address((unsigned int)va_arg(arg, unsigned int *), rest);
 	else if (formt[i] == 'p')
 		ft_putnbr_unsigned(va_arg(arg, unsigned int), rest);
 	else if (formt[i] == '%')
@@ -34,24 +34,39 @@ void	_printf_f(const char *formt, va_list arg, int i, int rest)
 
 int	ft_printf(const char *formt, ...)
 {
-	va_list	arg;
-	int		i;
-	int		resulta;
+	static int	rest;
+	va_list		arg;
+	int			i;
 
 	i = 0;
-	resulta = 0;
+	rest = 0;
 	va_start(arg, formt);
 	while (formt[i] != '\0')
 	{
+		if (write(1, "", 0) == -1)
+			return (-1);
+		if (formt[i] == '%' && formt[i + 1] == '\0')
+			break ;
 		if (formt[i] == '%')
 		{
 			i++;
-			_printf_f(formt, arg, i, resulta);
+			f_printf_f(formt, arg, i, rest);
 		}
-		else
-			ft_putchar(formt[i], resulta);
+		else if (formt[i] != '%')
+			ft_putchar(formt[i], rest);
 		i++;
 	}
 	va_end(arg);
-	return (resulta);
+	return (rest);
+}
+
+#include<stdio.h>
+int main ()
+{
+//	// fclose(stdout);
+int i = 1012852453;
+//// 	fprintf(stderr,"%d",i);
+
+ft_printf("%d\n",ft_printf("hjk%dgfb",i));
+//	 printf("%X\n", i);
 }
