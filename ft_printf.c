@@ -6,13 +6,13 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:40:33 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/14 12:26:48 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 16:15:44 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"ft_printf.h"
 
-void	f_printf_f(const char *formt, va_list arg, int i, int rest)
+void	f_printf_f(const char *formt, va_list arg, int i, int *rest)
 {
 	if (formt[i] == 'd' || formt[i] == 'i')
 		ft_putnbr(va_arg(arg, int), rest);
@@ -23,8 +23,8 @@ void	f_printf_f(const char *formt, va_list arg, int i, int rest)
 	else if (formt[i] == 'c')
 		ft_putchar(va_arg(arg, int), rest);
 	else if (formt[i] == 'p')
-		address((unsigned int)va_arg(arg, unsigned int *), rest);
-	else if (formt[i] == 'p')
+		address((unsigned long long)va_arg(arg, unsigned long long *), rest);
+	else if (formt[i] == 'u')
 		ft_putnbr_unsigned(va_arg(arg, unsigned int), rest);
 	else if (formt[i] == '%')
 		ft_putchar('%', rest);
@@ -34,7 +34,7 @@ void	f_printf_f(const char *formt, va_list arg, int i, int rest)
 
 int	ft_printf(const char *formt, ...)
 {
-	static int	rest;
+	int		rest;
 	va_list		arg;
 	int			i;
 
@@ -48,25 +48,11 @@ int	ft_printf(const char *formt, ...)
 		if (formt[i] == '%' && formt[i + 1] == '\0')
 			break ;
 		if (formt[i] == '%')
-		{
-			i++;
-			f_printf_f(formt, arg, i, rest);
-		}
+			f_printf_f(formt, arg, ++i, &rest);
 		else if (formt[i] != '%')
-			ft_putchar(formt[i], rest);
+			ft_putchar(formt[i], &rest);
 		i++;
 	}
 	va_end(arg);
 	return (rest);
-}
-
-#include<stdio.h>
-int main ()
-{
-//	// fclose(stdout);
-int i = 1012852453;
-//// 	fprintf(stderr,"%d",i);
-
-ft_printf("%d\n",ft_printf("hjk%dgfb",i));
-//	 printf("%X\n", i);
 }

@@ -6,14 +6,14 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:37:40 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/14 12:04:17 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:53:07 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-void	ft_putchar(char c, int count)
+void	ft_putchar(char c, int *count)
 {
-	write(1, &c, 1);
-	count++;
+	*count += write(1, &c, 1);
 }
