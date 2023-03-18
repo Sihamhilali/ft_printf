@@ -6,11 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:40:33 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/14 16:15:44 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:12:31 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
 void	f_printf_f(const char *formt, va_list arg, int i, int *rest)
 {
@@ -23,9 +23,9 @@ void	f_printf_f(const char *formt, va_list arg, int i, int *rest)
 	else if (formt[i] == 'c')
 		ft_putchar(va_arg(arg, int), rest);
 	else if (formt[i] == 'p')
-		address((unsigned long long)va_arg(arg, unsigned long long *), rest);
+		address(va_arg(arg, long), rest);
 	else if (formt[i] == 'u')
-		ft_putnbr_unsigned(va_arg(arg, unsigned int), rest);
+		ft_putnbr_unsigned(va_arg(arg, int), rest);
 	else if (formt[i] == '%')
 		ft_putchar('%', rest);
 	else
@@ -34,9 +34,9 @@ void	f_printf_f(const char *formt, va_list arg, int i, int *rest)
 
 int	ft_printf(const char *formt, ...)
 {
-	int		rest;
-	va_list		arg;
-	int			i;
+	int		rest;	
+	va_list	arg;
+	int		i;
 
 	i = 0;
 	rest = 0;

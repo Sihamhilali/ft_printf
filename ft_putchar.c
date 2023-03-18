@@ -6,12 +6,11 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:37:40 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/14 15:53:07 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/15 11:47:20 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_putchar(char c, int *count)
 {

@@ -6,7 +6,7 @@
 /*   By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 13:38:10 by selhilal          #+#    #+#             */
-/*   Updated: 2022/11/14 16:09:16 by selhilal         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:34:06 by selhilal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ void	ft_putchar(char c, int *count);
 void	ft_putnbr_unsigned(unsigned int n, int *count);
 void	nbrhexa(unsigned int n, char var, int *count);
 void	address(unsigned long long n, int *count);
-void	f_printf_f(const char *formt, va_list arg, int i, int *rest);
 void	ad_nbrhexa(unsigned long long n, int *count);
+void	f_printf_f(const char *formt, va_list arg, int i, int *rest);
 int		ft_printf(const char *formt, ...);
-
 
 #endif

@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: selhilal <selhilal@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 13:40:11 by selhilal          #+#    #+#              #
-#    Updated: 2022/11/13 20:43:20 by selhilal         ###   ########.fr        #
+#    Updated: 2022/11/15 15:34:32 by selhilal         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,12 @@ OBJECT = $(SOURCE:.c=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJECT)
+$(NAME) : $(OBJECT)
 	$(ARC) $(NAME) $(OBJECT)
-	
+
 %.o : %.c ft_printf.h
-	$(CC) $(CFLAGS) -o $@ -c $< 
+	$(CC) $(FLAG) -o $@ -c $< 
+
 clean:
 	rm -f $(OBJECT)
 
